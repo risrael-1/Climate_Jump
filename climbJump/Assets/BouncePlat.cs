@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BouncePlat : MonoBehaviour
 {
+    public float jumpF = 25f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +19,25 @@ public class BouncePlat : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
+        Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
+        if(rb != null)
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 300f);
+            Vector2 velocity = rb.velocity;
+            velocity.y = jumpF;
+            rb.velocity = velocity;
         }
     }
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.collider.name == "DeadZone")
+    //    {
+    //        float randX = Random.Range(-1.7f, 1.7f);
+    //        float randY = Random.Range(transform.position.y + 20f, transform.position.y + 22f);
+
+    //        transform.position = new Vector3(randX, randY, 0);
+
+
+    //    }
+    //}
 }
