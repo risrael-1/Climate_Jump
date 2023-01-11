@@ -6,7 +6,6 @@ public class DeadZone : MonoBehaviour
 {
     public GameObject player;
     public GameObject platPrefab;
-    private GameObject myplat;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +21,11 @@ public class DeadZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        myplat = (GameObject)Instantiate(platPrefab, new Vector2(Random.Range(-5.5f, 5.5f), player.transform.position.y + (14 + Random.Range(-0.5f, 1f))), Quaternion.identity);
-        Destroy(collision.gameObject);
+        if(collision.gameObject != null)
+        {
+            Destroy(collision.gameObject);
+            Instantiate(platPrefab, new Vector2(Random.Range(-5.5f, 5.5f), player.transform.position.y + (14 + Random.Range(-0.5f, 1f))), Quaternion.identity);
+
+        }        
     }
 }

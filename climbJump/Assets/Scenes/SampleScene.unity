@@ -128,6 +128,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 811856148368221461, guid: b53bfbd2c92eb4e65a9dfeae7aaceb80, type: 3}
   m_PrefabInstance: {fileID: 1095840570}
   m_PrefabAsset: {fileID: 0}
+--- !u!68 &339415250
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339415243}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.99999994, y: 0}
+  - {x: 0.99999994, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 807307087}
-  platPrefab: {fileID: 339415243}
+  platPrefab: {fileID: 811856148368221461, guid: b53bfbd2c92eb4e65a9dfeae7aaceb80, type: 3}
 --- !u!1 &807307087
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,10 +354,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.2
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -457,7 +479,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 811856148368221456, guid: b53bfbd2c92eb4e65a9dfeae7aaceb80, type: 3}
       propertyPath: jumpF
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 811856148368221457, guid: b53bfbd2c92eb4e65a9dfeae7aaceb80, type: 3}
       propertyPath: m_SideArc
@@ -519,7 +541,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 811856148368221462, guid: b53bfbd2c92eb4e65a9dfeae7aaceb80, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b53bfbd2c92eb4e65a9dfeae7aaceb80, type: 3}
 --- !u!1 &1230922835
@@ -594,6 +617,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 811856148368221461, guid: b53bfbd2c92eb4e65a9dfeae7aaceb80, type: 3}
   m_PrefabInstance: {fileID: 811856149511331013}
   m_PrefabAsset: {fileID: 0}
+--- !u!68 &1281538518
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281538512}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.99999994, y: 0}
+  - {x: 0.99999994, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1289477081
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +742,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 811856148368221456, guid: b53bfbd2c92eb4e65a9dfeae7aaceb80, type: 3}
       propertyPath: jumpF
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 811856148368221457, guid: b53bfbd2c92eb4e65a9dfeae7aaceb80, type: 3}
       propertyPath: m_Enabled
@@ -763,6 +808,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 811856148368221462, guid: b53bfbd2c92eb4e65a9dfeae7aaceb80, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b53bfbd2c92eb4e65a9dfeae7aaceb80, type: 3}

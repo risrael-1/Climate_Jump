@@ -22,6 +22,10 @@ public class BouncePlat : MonoBehaviour
         Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
         if(rb != null)
         {
+            if(rb.velocity.y < 0)
+            {
+                return;
+            }
             Vector2 velocity = rb.velocity;
             velocity.y = jumpF;
             rb.velocity = velocity;
