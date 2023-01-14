@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovment : MonoBehaviour
 {
+    public SpriteRenderer player;
     private Rigidbody2D rb;
-    private float move;
-    private float speed = 6f;
-
+    private float moveX;
+    private float speed = 10f;
+    Vector2 position;
+    float radius;
 
     // Start is called before the first frame update
     void Start()
@@ -18,13 +22,31 @@ public class PlayerMovment : MonoBehaviour
 
     void Update()
     {
-
+        //moveX = Input.GetAxis("Horizontal") * speed;
+        moveX = Input.acceleration.x * speed;
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -7.5f, 7.5f), transform.position.y);
+      
     }
 
     private void FixedUpdate()
     {
-        move = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(move * speed, rb.velocity.y);
+        Vector2 velocity = rb.velocity;
+        velocity.x = moveX;
+        rb.velocity = velocity;
+
+        if ((rb.position.x) > Const.screenLimitX)
+        {
+            velocity.x = -Const.screenLimitX;
+            velocity.y = rb.position.y;
+            rb.position = velocity;
+        }
+
+        if ((rb.position.x) < -Const.screenLimitX)
+        {
+            velocity.x = Const.screenLimitX;
+            velocity.y = rb.position.y;
+            rb.position = velocity;
+        }       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,12 +56,4 @@ public class PlayerMovment : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("DeadZone"))
-    //    {
-    //        SceneManager.LoadScene(0);
-    //    }
-    //}
 }

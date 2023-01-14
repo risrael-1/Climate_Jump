@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FollowPlayer : MonoBehaviour
 {
@@ -8,17 +9,23 @@ public class FollowPlayer : MonoBehaviour
     public float offset;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         offset = transform.position.y - player.position.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector3 pos = transform.position;
-        pos.y = player.position.y + offset;
-        transform.position = pos;
+        if(player.position.y > transform.position.y)
+        {
+            Vector3 newPosition = new Vector3(transform.position.x, player.position.y, transform.position.z);
+            transform.position = newPosition;
+        }
+
+        if(player.position.y < (player.position.y - 10))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+
     }
 }

@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - hole
+  - DeadZone
+  - jet
+  - platbounds
+  - plato2
+  - plato2X2
+  - plat
   layers:
   - Default
   - TransparentFX
